@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parameter</title>
+  </head>
+  <body>
+    <script>
+      // Parameter adalah variabel yang menyimpan nilai untuk diproses di dalam fungsi.
+
+      function kali(a, b) {
+        hasilKali = a * b;
+        console.log("Hasil kali a*b = " + hasilKali);
+      }
+      //   how to call the function
+      // a dan b adalah sebuah parameter
+      kali(8, 2); // -> Hasil kali a*b = 16
+
+      //   the function that restores value
+      function bagi(a, b) {
+        hasilBagi = a / b;
+        /* Agar hasil pengolahan nilai di dalam fungsi dapat digunakan untuk proses berikutnya, maka fungsi harus mengembalikan nilai, pengembalian nilai pada fungsi menggunakan kata kunci return kemudian diikuti dengan nilai atau variabel yang akan dikembalikan. */
+        return hasilBagi;
+      }
+      // memanggil fungsi
+      var nilai1 = 20;
+      var nilai2 = 5;
+      var hasilPembagian = bagi(nilai1, nilai2);
+      console.log(hasilPembagian); //-> 4
+    </script>
+  </body>
+</html>

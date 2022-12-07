@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fungsi</title>
+  </head>
+  <body>
+    <script>
+      // Membuat fungsi dengan cara biasa
+      function namaFungsi() {
+        console.log("Hello World!                   1");
+      }
+      //   call the function
+      namaFungsi();
+
+      //   Menggunakan ekspresi atau anonymous function / fungsi tanpa nama
+      var namaFungsi = function () {
+        console.log("Hello World!                   2");
+      };
+      // call the function
+      namaFungsi();
+
+      //   make a function with darts signs
+      var namaFungsi = () => {
+        console.log("Hello World!                   3");
+      };
+      //   call the function
+      namaFungsi();
+      // atau seperti ini (jika isi fungsi hanya satu baris):
+      var namaFungsi = () => console.log("Hello World!                  4");
+      //   call the function
+      //   Hampir sama dengan yang menggunakan ekspresi, bedanya menggunakan tanda panah (=>) sebagai ganti function, pembuatan fungsi dengan cara ini disebut arrow function.
+
+      //   make a function with kostruktor
+      var namaFungsi = new Function(
+        'console.log("Hello World!                   5");'
+      );
+      // Pemanggilan / Eksekusi Fungsi
+      namaFungsi();
+      /* Cara ini terlalu direkomendasikan oleh Developer Mozilla, karena terlihat kurang bagus, karena body fungsinya dibuat dalam bentuk string yang dapat mempengaruhi kinerja engine javascript. */
+
+      // complete example
+      // membuat fungsi
+      function sayHello() {
+        console.log("Hello World!                   6");
+      }
+      // memanggil fungsi
+      sayHello(); // maka akan menghasilkan -> Hello World!
+    </script>
+  </body>
+</html>

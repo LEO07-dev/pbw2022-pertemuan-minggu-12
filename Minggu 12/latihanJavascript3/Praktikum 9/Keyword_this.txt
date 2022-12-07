@@ -1,0 +1,2 @@
+Kata kunci this digunakan untuk mengakses properti dan method dari 
+dalam method (objek).

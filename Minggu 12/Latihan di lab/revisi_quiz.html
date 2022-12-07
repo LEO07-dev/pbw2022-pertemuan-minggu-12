@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuis</title>
+</head>
+<body>
+    <h3>Datan Nama Mahasiswa</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="this.addD">
+        <!-- void 0 berarti tetap di halaman itu sendiri -->
+        <input type="text" placeholder="TAMBAH NAMA" id="namaMhs">
+        <input type="submit" value="+">
+    </form>
+    <div id="counter">
+        <!-- dinamis dari javascript -->
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>
+                    Daftar nama 
+                </td>
+            </tr>
+        </thead>
+        
+        <tbody id="DaftarMhs">
+            <!-- dinamis dari javascript -->
+        </tbody>
+    </table>
+    <script>
+        var app = new function () {
+            this.el = document.getElementById("DaftarMhs");
+            this.mhs = ["Tono", "Tini", "Tanu", "Maria"];
+
+            this.barisAll = function () {
+                var data = " ";
+
+                if (this.mhs.length > 0) {
+                    for (let i = 0; i < this.mhs.length; i++) {
+                        data +="<tr>";
+                        data +="<td>"+ this.mhs[i] +" [" + i + "] ";
+                        data +=' <button onclick="apl.delD(' + i + ')">Del</button>';
+                        data +=' <button onclick="apl.updD(' + i + ')">Upd</button>';
+                        data +="</td></tr>";
+                    }
+                }
+                this.countD(this.mhs.length)
+                return this.el.innerHTML = data;
+            };
+
+            this.addD = function () {
+                // untuk fungsi Add (on submit)
+                el = document.getElementById('namaMhs');
+                var namaMhs = el.value;
+                if (namaMhs) {
+                    // tambah data baru (pada posisi urutan terkhir)
+                    // alert(namaMhs.trim());
+                    this.mhs.push(namaMhs.trim());
+                    // Kosongkan isian form
+                    el.value = '';
+                    // reset daftar nama
+                    this.barisAll();
+                }
+
+            }
+
+            this.delD = function () {
+                // untuk menghapus data
+                var yakin = confirm("Yakin akan dihapus ?");
+                if (yakin==true) {
+                    this.mhs.splice(item,1);
+                }
+                // resert daftar nama
+                this.barisAll();
+            }
+
+            this.countD = function (data) {
+                var el = document.getElementById("counter");
+                if (data) {
+                    el.innerHTML = data + " " + "Mahasiswa" ;
+                } else {
+                    el.innerHTML = "No " + "Mahasiswa";
+                }
+            };
+        }
+        app.barisAll();
+    </script>
+</body>
+</html>

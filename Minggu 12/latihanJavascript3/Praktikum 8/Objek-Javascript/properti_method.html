@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Properti & Method</title>
+  </head>
+  <body>
+    <script>
+      var car = "Mobil Fiat";
+      // Tapi variabel car hanya akan menyimpan nama mobil saja, maka harus menggunakan objek, objek pada javascript, dapat dibuat dengan tanda kurung kurawal dengan isi berupa key dan value.
+      var car = {
+        type: "Fiat",
+        // type adalah key
+        // fiat is value
+        model: "500",
+        color: "white",
+      };
+
+      /* Perbedaan Properti dan Method */
+      var car = {
+        // properti
+        type: "Fiat",
+        model: "500",
+        color: "white",
+        // method
+        start: function () {
+          console.log("ini method start");
+        },
+        drive: function () {
+          console.log("ini method drive");
+        },
+        brake: function () {
+          console.log("ini method brake");
+        },
+        stop: function () {
+          console.log("ini method stop");
+        },
+      };
+
+      /* Cara mengakses Properti dan Method */
+      //   Property
+      console.log(car.type);
+      //   car is object names
+      // type is object property
+      console.log(car.color);
+      //   Method
+      car.start();
+      //   start() is method objek
+      car.drive();
+    </script>
+  </body>
+</html>
