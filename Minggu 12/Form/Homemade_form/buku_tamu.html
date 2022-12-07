@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+
+  <body>
+    <form action="simpan.php" method="post">
+      <h1>Form Buku Tamu</h1>
+      Nama Lengkap:
+      <br />
+      <!-- Atribut TYPE = “TEXT” digunakan untuk membuat kotak input text (edit)
+            Atribut NAME digunakan sebagai variabel untuk menyebut data yang diinput
+            Atribut VALUE digunakan untuk memberi nilai default pada inputan
+            Atribut SIZE digunakan untuk mengatur lebar inputan
+            Atribut MAXLENGTH digunakan untuk mengatur panjang karakter maksimal yang dapat diketikkan -->
+      <input
+        type="text"
+        name="nama_lengkap"
+        id="namaLenkap"
+        size="55"
+        value="Full Name"
+        maxlength="25"
+      />
+      <br />
+      <br />
+      Fakultas Ilmu Komputer <br />
+      Prodi:
+      <!-- Pada input type=“radio” dan “checkbox” terdapat atribut tambahan CHECKED 
+            yang menandakan menandakan bahwa pilihan tersebut dipilih -->
+      <br />
+      <input type="radio" name="Ilmu_Komunikasi" id="IK" /><label for="IK"
+        >Ilmu Komunikasi</label
+      >
+      <input type="radio" name="Sistem_Informasi" id="SI" /><label for="SI"
+        >Sistem Informasi</label
+      >
+      <input type="radio" name="Teknik_Informatika" id="TI" /><label for="TI"
+        >Teknik Informatika</label
+      >
+      <br />
+      <input type="radio" name="Film_dan_Televisi" id="FTv" /><label for="FTv"
+        >Film dan Televisi</label
+      >
+      <input type="radio" name="Desain_Komunikasi_Visual" id="DKV" /><label
+        for="DKV"
+        >Desain Komunikasi Visual (DKV)</label
+      >
+      <br />
+      <input type="radio" name="Broadcasting" id="broadcasting" /><label
+        for="broadcasting"
+        >Broadcasting (Penyiaran)</label
+      >
+      <input type="radio" name="Animasi" id="animasi" /><label for="animasi"
+        >Animasi</label
+      >
+      <br />
+      <br />
+      Jenis Kelamin:
+      <br />
+      <!-- Input type=“radio” akan memunculkan inputan berjenis radio button -->
+      <label for="Male"> Laki-laki </label>
+      <input type="radio" name="Pria" id="Male" value="L" />
+      <label for="Female">Perempuan</label>
+      <input type="radio" name="Wanita" id="Female" value="P" />
+      <br />
+      <br />
+      Alamat Tinggal:
+      <br />
+      <input
+        type="text"
+        name="Alamat"
+        id="Address"
+        size="42"
+        maxlength="35"
+        placeholder="Address"
+      />
+      <br />
+      <br />
+      Email:
+      <br />
+      <input
+        type="email"
+        name="Email"
+        id="alamat_email"
+        size="42"
+        maxlength="30"
+        placeholder="Email@gmail.com"
+      />
+      <br />
+      <br />
+      Aktif Pada Sosial Media:
+      <br />
+      <!-- Input type=“checkbox” akan memunculkan inputan berjenis checkbox -->
+      <input type="checkbox" name="Facebook" id="facebook" value="Ya" /><label
+        for="facebook"
+        >Facebook</label
+      >
+      <input type="checkbox" name="Twitter" id="twitter" value="Ya" /><label
+        for="twitter"
+        >Twitter</label
+      >
+      <input type="checkbox" name="Instagram" id="instagram" value="Ya" /><label
+        for="instagram"
+        >Instagram</label
+      >
+      <input type="checkbox" name="Path" id="path" value="Ya" /><label
+        for="path"
+        >Path</label
+      >
+      <br />
+      <br />
+      Mengetahui Web Ini dari:
+      <br>
+      <select name="info">
+        <option selected="select">-=Pilih=-</option>
+        <!-- Atribut selected menandai pilihan awal yang terpilih -->
+        <option value="web_udinus">Web Udinus</option>
+        <option value="surat_kabar">Surat Kabar</option>
+        <option value="teman_kerabat">Teman/Kerabat</option>
+        <option value="browsing_interner">Browsing Interner</option>
+      </select>
+      <br>
+      <br>
+      Pesan:
+      <br>
+      <textarea name="pesan" id="message" cols="40" rows="3"></textarea>
+      <!-- Elemen Text Area mendefinisikan input field multi baris
+            Text Area memiliki atribut Rows dan Cols
+            Atribut Rows menentukan jumlah garis (line) yang terlihat pada text area
+            Atribut Cols menentukan lebar (width) yang terlihat pada text area -->
+        <br>
+        <br>
+        <input type="submit" value="Kirim">
+        <input type="reset" value="Batal">
+        <br>
+        <input type="password" name="security" id="safety" value="Kata Sandi">
+        <input type="file" name="berkas" id="dokumen">
+    </form>
+  </body>
+</html>

@@ -10,7 +10,7 @@
     <h3>Datan Nama Mahasiswa</h3>
     <form action="javascript:void(0);" method="POST" onsubmit="this.addD">
         <!-- void 0 berarti tetap di halaman itu sendiri -->
-        <input type="text" placeholder="TAMBAH NAMA" id="namaMhs">
+        <input type="text" placeholder="TAMBAH NAMA" id="namaMahasiswa">
         <input type="submit" value="+">
     </form>
     <div id="counter">
@@ -52,19 +52,19 @@
 
             this.addD = function () {
                 // untuk fungsi Add (on submit)
-                el = document.getElementById('namaMhs');
+                el = document.getElementById("namaMahasiswa");
                 var namaMhs = el.value;
                 if (namaMhs) {
                     // tambah data baru (pada posisi urutan terkhir)
                     // alert(namaMhs.trim());
                     this.mhs.push(namaMhs.trim());
                     // Kosongkan isian form
-                    el.value = '';
+                    el.value = "";
                     // reset daftar nama
                     this.barisAll();
                 }
 
-            }
+            };
 
             this.delD = function () {
                 // untuk menghapus data
@@ -74,7 +74,7 @@
                 }
                 // resert daftar nama
                 this.barisAll();
-            }
+            };
 
             this.countD = function (data) {
                 var el = document.getElementById("counter");
