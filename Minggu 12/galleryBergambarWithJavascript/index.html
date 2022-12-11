@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Bergambar</title>
+</head>
+<body>
+    <h1>With Javascript</h1>
+    <div class="gallery">
+        <button onclick="ganti_sebelumnya()">Sebelumnya</button>
+        <button onclick="ganti_berikut()">Sesudahnya</button>
+        <br>
+        <img src="assets/image/gambar1.jpg" alt="Gambar 1" id="targetGambar" width="400" height="250">
+        </div>
+    <div id="thumbnail">
+        <img src="assets/image/gambar1.jpg" alt="Gambar 1" onclick="ganti_gambar(this)" class="0">
+        <img src="assets/image/gambar2.jpg" alt="Gambar 2" onclick="ganti_gambar(this)" class="1">
+        <img src="assets/image/gambar3.jpg" alt="Gambar 3" onclick="ganti_gambar(this)" class="2">
+    </div>
+    <script type="text/javascript">
+        var targerGambar = document.getElementById('targetGambar');
+
+        function ganti_gambar(Gambar) {
+            targerGambar.src = Gambar.getAttribute('src');
+
+        }
+
+        var arrayName = document.getElementById('thumbnail').children;
+
+        var noSekarang = 0;
+
+        function ganti_gambar(Gambar) {
+            targerGambar.src = Gambar.getAttribute('src');
+            noSekarang = Gambar.className;
+        }
+
+        function ganti_sebelumnya() {
+            noSekarang = noSekarang - 1;
+            if (noSekarang < 0) noSekarang = 2;
+            targerGambar.src = arrayName[noSekarang].getAttribute('src');
+        }
+
+        function ganti_berikut() {
+            noSekarang = noSekarang + 1;
+            if (noSekarang > 2) noSekarang = 0;
+            targerGambar.src = arrayName[noSekarang].getAttribute('src');
+        }
+    </script>
+</body>
+</html>
