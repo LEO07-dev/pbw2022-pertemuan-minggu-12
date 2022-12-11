@@ -8,9 +8,9 @@
 </head>
 <body>
     <h3>Datan Nama Mahasiswa</h3>
-    <form action="javascript:void(0);" method="POST" onsubmit="this.addD">
+    <form onsubmit="app.addData()" action="javascript:void(0);" method="POST">
         <!-- void 0 berarti tetap di halaman itu sendiri -->
-        <input type="text" placeholder="TAMBAH NAMA" id="namaMahasiswa">
+        <input type="text" placeholder="Inputkan NAMA" id="namaMhs">
         <input type="submit" value="+">
     </form>
     <div id="counter">
@@ -25,65 +25,72 @@
             </tr>
         </thead>
         
-        <tbody id="DaftarMhs">
+        <tbody id="daftarMhs">
             <!-- dinamis dari javascript -->
         </tbody>
     </table>
     <script>
-        var app = new function () {
-            this.el = document.getElementById("DaftarMhs");
-            this.mhs = ["Tono", "Tini", "Tanu", "Maria"];
+        var app = new function() {
+            this.el = document.getElementById("daftarMhs");
+            this.mhs = ["Toni", "Tono", "Tini", "Tino"];
 
-            this.barisAll = function () {
-                var data = " ";
+            this.barisAll = function() {
+                var data = '';
 
                 if (this.mhs.length > 0) {
-                    for (let i = 0; i < this.mhs.length; i++) {
-                        data +="<tr>";
-                        data +="<td>"+ this.mhs[i] +" [" + i + "] ";
-                        data +=' <button onclick="apl.delD(' + i + ')">Del</button>';
-                        data +=' <button onclick="apl.updD(' + i + ')">Upd</button>';
-                        data +="</td></tr>";
+                    for (i = 0; i < this.mhs.length; i++) {
+                        data +='<tr>';
+                        data +='<td>'+ this.mhs[i];
+                        data +=' <button onclick="app.delData(' + i + ')">Del</button>';
+                        data +=' <button onclick="app.updData(' + i + ')">Upd</button>';
+                        data +='</td></tr>';
                     }
                 }
-                this.countD(this.mhs.length)
+                this.count(this.mhs.length)
                 return this.el.innerHTML = data;
             };
 
-            this.addD = function () {
+            this.count = function(data) {
+                var el = document.getElementById('counter');
+                if (data) {
+                    el.innerHTML = 'Jumlah: ' + data + ' ' + 'Mahasiswa' ;
+                } else {
+                    el.innerHTML = 'No ' + 'Mahasiswa';
+                }
+            };
+
+            this.addData = function() {
                 // untuk fungsi Add (on submit)
-                el = document.getElementById("namaMahasiswa");
+                el = document.getElementById('namaMhs');
                 var namaMhs = el.value;
                 if (namaMhs) {
                     // tambah data baru (pada posisi urutan terkhir)
                     // alert(namaMhs.trim());
                     this.mhs.push(namaMhs.trim());
                     // Kosongkan isian form
-                    el.value = "";
+                    el.value = '';
                     // reset daftar nama
                     this.barisAll();
                 }
+            }
 
-            };
-
-            this.delD = function () {
-                // untuk menghapus data
+            this.delData = function(item) {
+                // untuk menghapus data / baris terpilih
                 var yakin = confirm("Yakin akan dihapus ?");
-                if (yakin==true) {
-                    this.mhs.splice(item,1);
+                if(yakin==true) {
+                    this.mhs.splice(item, 1);
                 }
-                // resert daftar nama
+                // reset daftar nama
                 this.barisAll();
-            };
+            }
 
-            this.countD = function (data) {
-                var el = document.getElementById("counter");
-                if (data) {
-                    el.innerHTML = data + " " + "Mahasiswa" ;
-                } else {
-                    el.innerHTML = "No " + "Mahasiswa";
+            this.updData = function(item) {
+                var dataUpd = prompt("Perbarui nama ? ", this.mhs[item]);
+                if (dataUpd) {
+                    this.mhs[item] = dataUpd;
                 }
-            };
+                this.barisAll();
+            }
         }
         app.barisAll();
     </script>
